@@ -75,5 +75,4 @@ const CREATE_LINK_MUTATION = gql`
   }
 `
 
-// 3
 export default graphql(CREATE_LINK_MUTATION, { name: 'createLinkMutation' })(CreateLink)
