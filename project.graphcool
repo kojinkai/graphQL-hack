@@ -1,7 +1,7 @@
 # project: cj7oidriu00nj0179x2ns6aj6
 # version: 3
 
-type User implements Node {
+type User @model {
   name: String!
   links: [Link!]! @relation(name: "UsersLinks")
   votes: [Vote!]! @relation(name: "UsersVotes")
@@ -12,7 +12,7 @@ type User implements Node {
   updatedAt: DateTime!
 }
 
-type Link implements Node {
+type Link @model {
   url: String!
   description: String!
   postedBy: User @relation(name: "UsersLinks")
@@ -22,7 +22,7 @@ type Link implements Node {
   updatedAt: DateTime!
 }
 
-type Vote implements Node {
+type Vote @model {
   user: User @relation(name: "UsersVotes")
   link: Link @relation(name: "VotesOnLink")
   createdAt: DateTime!
@@ -30,7 +30,7 @@ type Vote implements Node {
   updatedAt: DateTime!
 }
 
-type File implements Node {
+type File @model {
   contentType: String!
   createdAt: DateTime!
   id: ID! @isUnique
